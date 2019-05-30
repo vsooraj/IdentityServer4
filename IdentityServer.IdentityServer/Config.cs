@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System.Collections.Generic;
 
@@ -6,6 +7,14 @@ namespace IdentityServer.IdentityServer
 {
     public class Config
     {
+        public static IEnumerable<IdentityResource> GetIdentityResources()
+        {
+            return new List<IdentityResource>
+            {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Profile(),
+            };
+        }
         public static List<TestUser> GetUsers()
         {
             return new List<TestUser>
@@ -24,9 +33,10 @@ namespace IdentityServer.IdentityServer
 
         public static IEnumerable<Client> GetClients()
         {
-            //Client Credetials based Grant Types
+
             return new List<Client>
             {
+                //Client Credetials based Grant Types
                 new Client
                 {
                     ClientId="client",
@@ -36,15 +46,34 @@ namespace IdentityServer.IdentityServer
                 },
            
 
-            //Resource Owner based Grant Types
-           
+                //Resource Owner based Grant Types           
                 new Client
                 {
                     ClientId="ro.client",
                     AllowedGrantTypes=GrantTypes.ResourceOwnerPassword,
                     ClientSecrets={ new Secret("secret".Sha256()) },
                     AllowedScopes={ "IdentityServerApi" }
+                },
+           
+
+                //Implicit Flow Grant Types           
+                new Client
+                {
+                    ClientId="mvc",
+                    ClientName="MVC Client",
+                    AllowedGrantTypes=GrantTypes.Implicit,
+                    RedirectUris={ "http://localhost:5003/signin-oidc" },
+                    PostLogoutRedirectUris={ "http://localhost:5003/signout-callback-oidc" },
+
+                    AllowedScopes= new List<string>
+                    {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile
+
+                    }
+
                 }
+
             };
         }
     }

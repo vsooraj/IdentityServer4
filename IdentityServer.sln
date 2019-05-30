@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.IdentityServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.ClientConsole", "IdentityServer.ClientConsole\IdentityServer.ClientConsole.csproj", "{940E5474-9F1C-432D-899C-78A1A663779F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.ClientMVC", "IdentityServer.ClientMVC\IdentityServer.ClientMVC.csproj", "{64933F4D-59B3-49C8-AC73-27E4CFCF6658}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{940E5474-9F1C-432D-899C-78A1A663779F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{940E5474-9F1C-432D-899C-78A1A663779F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{940E5474-9F1C-432D-899C-78A1A663779F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64933F4D-59B3-49C8-AC73-27E4CFCF6658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64933F4D-59B3-49C8-AC73-27E4CFCF6658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64933F4D-59B3-49C8-AC73-27E4CFCF6658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64933F4D-59B3-49C8-AC73-27E4CFCF6658}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
