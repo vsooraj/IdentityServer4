@@ -13,7 +13,8 @@ namespace IdentityServer.IdentityServer
             services.AddIdentityServer()
             .AddDeveloperSigningCredential()
             .AddInMemoryApiResources(Config.GetAllApiResources())
-            .AddInMemoryClients(Config.GetClients());
+            .AddInMemoryClients(Config.GetClients())
+            .AddTestUsers(Config.GetUsers());
 
         }
 

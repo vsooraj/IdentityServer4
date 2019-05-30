@@ -6,12 +6,12 @@ namespace IdentityServer.IdentityServer
 {
     public class Config
     {
-        public static IEnumerable<TestUser> GetAllUsers()
+        public static List<TestUser> GetUsers()
         {
             return new List<TestUser>
             {
-                new TestUser{ SubjectId="1",Username="Sooraj", Password="password123"},
-                new TestUser{ SubjectId="2",Username="Jon", Password="password123"}
+                new TestUser{ SubjectId="1",Username="Sooraj", Password="password"},
+                new TestUser{ SubjectId="2",Username="Jon", Password="password"}
             };
         }
         public static IEnumerable<ApiResource> GetAllApiResources()

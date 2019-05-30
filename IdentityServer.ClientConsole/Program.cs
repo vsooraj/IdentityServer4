@@ -27,7 +27,7 @@ namespace IdentityServer.ClientConsole
             //Grab Bearer Token -Resource Owner
 
             var tokenClientRO = new TokenClient(discoRO.TokenEndpoint, "ro.client", "secret");
-            var tokenResponseRO = await tokenClientRO.RequestResourceOwnerPasswordAsync("sooraj", "password123", "IdentityServerApi");
+            var tokenResponseRO = await tokenClientRO.RequestResourceOwnerPasswordAsync("Jon", "password", "IdentityServerApi");
             if (tokenResponseRO.IsError)
             {
                 Console.WriteLine(tokenResponseRO.Error);
