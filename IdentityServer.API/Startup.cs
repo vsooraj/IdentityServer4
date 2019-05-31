@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using System.Collections.Generic;
 
 namespace IdentityServer.API
 {
@@ -36,6 +37,20 @@ namespace IdentityServer.API
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new Info { Title = "IdentityServer Api", Version = "v1" });
+                options.OperationFilter<CheckAuthorizeOperationFilter>();
+                options.AddSecurityDefinition("oauth2", new OAuth2Scheme
+                {
+                    Type = "oauth2",
+                    Flow = "implicit",
+                    AuthorizationUrl = "http://localhost:5000/connect/authorize",
+                    TokenUrl = "http://localhost:5000/connect/token",
+                    Scopes = new Dictionary<string, string>() {
+
+                        {"IdentityServerApi","IdentityServerApi Customer APIs" }
+                    }
+
+
+                });
             });
         }
 
@@ -52,6 +67,8 @@ namespace IdentityServer.API
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "IdentityServer Api version 1");
+                options.OAuthClientId("swaggerapiui");
+                options.OAuthAppName("Swagger Client");
             });
         }
     }
