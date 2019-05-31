@@ -72,6 +72,20 @@ namespace IdentityServer.IdentityServer
 
                     }
 
+                },
+           
+
+                //Swagger Client       
+                new Client
+                {
+                    ClientId="swaggerapiui",
+                    ClientName="Swagger Client",
+                    AllowedGrantTypes=GrantTypes.Implicit,
+                    RedirectUris={ "http://localhost:53056/swagger/oauth2-redirect.html" },
+                    PostLogoutRedirectUris={ "http://localhost:53056/swagger" },
+                    AllowedScopes={ "IdentityServerApi" },
+                    AllowAccessTokensViaBrowser=true
+
                 }
 
             };
